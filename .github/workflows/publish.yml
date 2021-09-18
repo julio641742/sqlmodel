@@ -47,8 +47,5 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: python -m poetry install
       - name: Publish
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: |
-          python -m poetry config pypi-token.pypi $PYPI_TOKEN
           bash scripts/publish.sh
